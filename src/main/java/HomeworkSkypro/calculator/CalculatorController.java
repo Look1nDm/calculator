@@ -22,7 +22,7 @@ public class CalculatorController {
     }
 
     @GetMapping(path = "/plus")
-    public String plus(@RequestParam double num1, @RequestParam double num2) {
+    public String plus(@RequestParam Double num1, @RequestParam Double num2) {
         if (Objects.isNull(num1)||Objects.isNull(num2)){
             return "Введите оба числа";
         }
@@ -31,7 +31,7 @@ public class CalculatorController {
     }
 
     @GetMapping (path = "/minus")
-    public String minus(@RequestParam double num1,@RequestParam double num2) {
+    public String minus(@RequestParam Double num1, @RequestParam Double num2) {
         if (Objects.isNull(num1)||Objects.isNull(num2)){
             return "Введите оба числа";
         }
@@ -40,7 +40,7 @@ public class CalculatorController {
     }
 
     @GetMapping (path = "/multiply")
-    public String multiply(@RequestParam double num1,@RequestParam double num2) {
+    public String multiply(@RequestParam Double num1, @RequestParam Double num2) {
         if (Objects.isNull(num1)||Objects.isNull(num2)){
             return "Введите оба числа";
         }
@@ -49,7 +49,7 @@ public class CalculatorController {
     }
 
     @GetMapping (path = "/divide")
-    public String divide(@RequestParam double num1,@RequestParam double num2) {
+    public String divide(@RequestParam Double num1, @RequestParam Double num2) {
         if (Objects.isNull(num1)||Objects.isNull(num2)){
             return "Введите оба числа";
         }
