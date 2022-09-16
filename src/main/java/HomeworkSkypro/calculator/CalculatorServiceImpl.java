@@ -2,29 +2,44 @@ package HomeworkSkypro.calculator;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
+
 public class CalculatorServiceImpl implements CalculatorService {
     public String hello() {
         return "Добро пожаловать в калькулятор!";
     }
 
-    public double plus(double num1, double num2) {
-        double summ = num1+num2;
-        return summ;
+    public boolean notNull(Integer num1,Integer num2){
+        return !Objects.isNull(num1) && !Objects.isNull(num2);
     }
 
-    public double minus(double num1, double num2) {
-        double result = num1-num2;
-        return result;
+    public Integer plus(Integer num1, Integer num2) {
+        if(!notNull(num1,num2)){
+            throw new NotWrittenNumber("Не ввели оба числа!");
+        }
+        return num1+num2;
     }
 
-    public double multiply(double num1, double num2) {
-        double result = num1*num2;
-        return result;
+    public Integer minus(Integer num1, Integer num2) {
+
+        if(!notNull(num1,num2)){
+            throw new NotWrittenNumber("Не ввели оба числа!");
+        }return num1-num2;
     }
 
-    public double divide(double num1, double num2) {
-        double result = num1/num2;
-        return result;
+    public Integer multiply(Integer num1, Integer num2) {
+
+        if(!notNull(num1,num2)){
+            throw new NotWrittenNumber("Не ввели оба числа!");
+        }return num1*num2;
+    }
+
+    public int divide(int num1, int num2) {
+        if (num2 == 0) {
+            throw new NotWrittenNumber("Попытка деления на 0!");
+        }
+        return num1/num2;
     }
 }
